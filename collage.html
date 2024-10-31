@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperNova</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            display: flex;
+            width: 100%;
+            margin-bottom: 40px; /* Increased space between sections */
+        }
+
+        .text {
+            flex: 1;
+            padding: 20px; /* Space around the text */
+        }
+
+        .image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* Alternate layout for odd and even sections */
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <div class="text">
+                <h2>Title 1</h2>
+                <p>Description for the first section. This is where you can explain more about the image.</p>
+            </div>
+            <div class="image">
+                <img src="images/aboutBackground.jpg" alt="About Background">
+            </div>
+        </div>
+        <div class="section">
+            <div class="text">
+                <h2>Title 2</h2>
+                <p>Description for the second section. Another explanation for the following image.</p>
+            </div>
+            <div class="image">
+                <img src="images/profile-pic.png" alt="Profile Picture">
+            </div>
+        </div>
+        <div class="section">
+            <div class="text">
+                <h2>Title 3</h2>
+                <p>Description for the third section. More details related to the third image.</p>
+            </div>
+            <div class="image">
+                <img src="images/aboutBackground.jpg" alt="About Background">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

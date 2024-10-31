@@ -84,14 +84,14 @@
             }).then(response => {
                 if (response.ok) {
                     // Show success message
-                    document.getElementById('responseMessage').innerText = "Tak for din besked! Vi vender tilbage til dig snart.";
+                    document.getElementById('responseMessage').innerText = "Thank you for your message! I will get back to you soon.";
                     this.reset(); // Reset form fields
                 } else {
                     // Show error message
-                    document.getElementById('responseMessage').innerText = "Der opstod et problem med at sende din besked. Prøv venligst igen.";
+                    document.getElementById('responseMessage').innerText = "There was a problem sending your message. Please try again.";
                 }
             }).catch(error => {
-                document.getElementById('responseMessage').innerText = "Der opstod et problem med at sende din besked. Prøv venligst igen.";
+                document.getElementById('responseMessage').innerText = "There was a problem sending your message. Please try again.";
             });
         });
     </script>
