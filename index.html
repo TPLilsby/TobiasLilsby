@@ -5,38 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tobias Lilsby</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
         /* Custom styles for the video background */
         .video-background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            object-fit: cover; /* Ensures the video covers the entire area */
+            object-fit: cover; 
         }
 
         /* Glow effect for the about box */
         .about-box {
-            box-shadow: 0 0 120px rgba(0, 0, 255, 0.7); /* Increased spread for longer fade */
+            box-shadow: 0 0 120px rgba(0, 0, 255, 0.7);
         }
 
         /* Flexbox settings to stick footer to the bottom */
         body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Ensures the body takes at least full viewport height */
+            margin: 0; /* Reset default body margin */
+            overflow-x: hidden; /* Prevent horizontal overflow */
         }
 
         main {
-            flex: 1; /* Allows the main content to grow and push footer down */
+            padding: 50px 0; /* Adjusted padding for top and bottom */
+            z-index: 10;
+        }
+
+         
+        /* Styling for the roadmap section */
+        .roadmap {
+            padding: 50px;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0 auto; /* Center the section */
+        }
+
+        .roadmap-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .roadmap-box {
+            background-color: #fff;
+            border: 2px solid #ff4c4c; /* Red border */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 280px; /* Fixed width for boxes */
+            padding: 20px;
+            margin: 20px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .roadmap-box:hover {
+            transform: scale(1.05);
+        }
+
+        .roadmap-box:after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 20px;
+            background: #ff4c4c; /* Red line */
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100%; /* Position it at the bottom of the box */
+            margin-top: -10px; /* Adjust space between the box and line */
+        }
+
+        .roadmap-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .roadmap-description {
+            font-size: 1.1rem;
+            color: #666;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900 relative overflow-hidden">
-    <!-- Add your video element here -->
+<body class="bg-gray-100 text-gray-900">
     <video autoplay muted loop class="video-background">
         <source src="video/background.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -53,8 +106,9 @@
             </ul>
         </nav>
     </header>
-    <main class="flex items-center justify-center py-24 relative z-10">
-        <div class="bg-gray-800 text-white rounded-xl shadow-3xl p-8 max-w-md mx-auto about-box"> <!-- Add the about-box class here -->
+
+    <main class="flex items-center justify-center relative z-10">
+        <div class="bg-gray-800 text-white rounded-xl shadow-3xl p-8 max-w-md mx-auto about-box">
             <div class="flex flex-col items-center">
                 <img src="images/profile-pic.png" alt="Profile Picture" class="rounded-full border-4 border-indigo-600 w-36 h-36" />
                 <h1 class="text-4xl font-extrabold mt-6 mb-4">Hello, I&apos;m Tobias</h1>
@@ -65,16 +119,156 @@
             </div>
         </div>
     </main>
-    <footer class="bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-6 text-center">
-        <p class="mb-2 text-sm">© 2024 Tobias Lilsby. All Rights Reserved.</p>
-        <p class="text-sm">
-            Contact: 
-            <a href="mailto:ttlilsby@gmail.com" class="text-white underline hover:text-gray-200 transition duration-300">ttlilsby@gmail.com</a> | 
-            Phone: <span class="text-gray-200">(+45) 71786878</span>
-        </p>
-        <p class="text-sm mt-2">
-            Location: <span class="text-gray-200">Vordingborg, Denmark</span>
-        </p>
-    </footer>
+
+    <section class="timeline" id="timelineSection">
+        <h2 class="text-3xl font-bold mb-6 text-center">📅 My Journey So Far</h2>
+        <div class="timeline-container">
+            <div class="timeline-box left">
+                <div class="timeline-title">2004</div>
+                <p class="timeline-description">Born into the world, ready to explore and learn!</p>
+            </div>
+            <div class="timeline-box right">
+                <div class="timeline-title">2011</div>
+                <p class="timeline-description">Started elementary school, beginning my educational adventure.</p>
+            </div>
+            <div class="timeline-box left">
+                <div class="timeline-title">2018</div>
+                <p class="timeline-description">Started playing the drums, discovering my passion for music.</p>
+            </div>
+            <div class="timeline-box right">
+                <div class="timeline-title">June 2021</div>
+                <p class="timeline-description">Graduated from elementary school, marking a significant milestone.</p>
+            </div>
+            <div class="timeline-box left">
+                <div class="timeline-title">August 2021</div>
+                <p class="timeline-description">Started on GF1 Data & Communication education, diving into the world of technology.</p>
+            </div>
+            <div class="timeline-box right">
+                <div class="timeline-title">2022</div>
+                <p class="timeline-description">Began my apprenticeship as a data technician specializing in programming.</p>
+            </div>
+            <div class="timeline-box left">
+                <div class="timeline-title">2024 - Today</div>
+                <p class="timeline-description">Continuing my journey, striving for excellence every day.</p>
+            </div>
+            <div class="timeline-box right">
+                <div class="timeline-title">Future</div>
+                <p class="timeline-description">Excited for what lies ahead! I aim to grow personally and professionally.</p>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Timeline section styling */
+        .timeline {
+            padding: 50px;
+            background-color: #e6f7ff;
+            text-align: center;
+        }
+    
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+    
+        .timeline-box {
+            background-color: #fff;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 40%;
+            position: relative;
+            margin: 20px 0;
+        }
+    
+        /* Align left and right boxes */
+        .timeline-box.left {
+            align-self: flex-start;
+        }
+    
+        .timeline-box.right {
+            align-self: flex-end;
+        }
+    
+        /* Curved line styling */
+        .timeline-box.left::after,
+        .timeline-box.right::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 3px solid #4caf50;
+            border-radius: 50%;
+            top: 100%;
+            z-index: -1;
+        }
+    
+        /* Left side curves */
+        .timeline-box.left::after {
+            left: 100%;
+            border-top: 0;
+            border-right: 0;
+            border-bottom-left-radius: 50px;
+            transform: translate(-25px, 25px);
+        }
+    
+        /* Right side curves */
+        .timeline-box.right::after {
+            right: 100%;
+            border-top: 0;
+            border-left: 0;
+            border-bottom-right-radius: 50px;
+            transform: translate(25px, 25px);
+        }
+    
+        /* Remove line from the last item */
+        .timeline-box:last-child::after {
+            display: none;
+        }
+    
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+    
+        .timeline-description {
+            font-size: 1.1rem;
+            color: #666;
+        }
+    </style>
+    
+    
+    <section class="roadmap" id="roadmapSection">
+        <h2 class="text-3xl font-bold mb-6 text-center">🚀 Roadmap for Success - If you Ask Me</h2>
+        <div class="roadmap-container">
+            <div class="roadmap-box">
+                <div class="roadmap-title">🌱 Start Your Journey</div>
+                <p class="roadmap-description">Begin by exploring new interests and hobbies. Take chances to learn about the world around you and discover your passion.</p>
+            </div>
+            <div class="roadmap-box">
+                <div class="roadmap-title">📚 Enhance Your Skills</div>
+                <p class="roadmap-description">Develop your skills in areas you are passionate about, whether it's art, music, or sports. Invest time in personal growth and learning.</p>
+            </div>
+            <div class="roadmap-box">
+                <div class="roadmap-title">🚀 Create Amazing Projects</div>
+                <p class="roadmap-description">Bring your ideas to life by starting creative projects. This could be anything from writing a book to making a film or starting a new business.</p>
+            </div>
+            <div class="roadmap-box">
+                <div class="roadmap-title">🌟 Share Your Work</div>
+                <p class="roadmap-description">Share your experiences and projects with others. Use social media to inspire and build a community around your interests.</p>
+            </div>
+            <div class="roadmap-box">
+                <div class="roadmap-title">🏆 Achieve Your Goals</div>
+                <p class="roadmap-description">Set goals that matter to you and work towards them. Celebrate your achievements and use them as motivation to reach new heights.</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
